@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-200.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-300.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-400.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-500.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-600.ttf') format('truetype');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overflow-x: hidden;
+  background: #020408;
+  color: #E2E8F0;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+#smooth-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#smooth-content {
+  position: relative;
+  touch-action: pan-y;
+}
+
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(20, 241, 149, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(20, 241, 149, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse at 50% 0%, black 40%, transparent 70%);
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.bg-stars {
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.1;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(11, 15, 23, 0.7), rgba(11, 15, 23, 0.4));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  filter: blur(10px);
+  will-change: transform, opacity, filter;
+}
+
+/* Video Background Optimization */
+video {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+  pointer-events: none !important;
+  -webkit-tap-highlight-color: transparent;
+  opacity: 1 !important;
+}
+
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-overlay-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+#bgVideo {
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  video {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  video {
+    pointer-events: none !important;
+    touch-action: none !important;
+  }
+  #smooth-wrapper {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Corner Bracket Dot Button Styles */
+.btn-wrapper .line {
+  position: absolute;
+  background-color: var(--line-color, #fffa);
+  transition: all var(--animation-speed, 0.35s) ease;
+}
+.btn-wrapper .line.horizontal {
+  height: var(--line-weight, 1px);
+  width: 100%;
+}
+.btn-wrapper .line.horizontal.top { top: 0; left: 0; }
+.btn-wrapper .line.horizontal.bottom { bottom: 0; left: 0; }
+.btn-wrapper .line.vertical {
+  width: var(--line-weight, 1px);
+  height: 100%;
+}
+.btn-wrapper .line.vertical.left { left: 0; top: 0; }
+.btn-wrapper .line.vertical.right { right: 0; top: 0; }
+.btn-wrapper .dot {
+  position: absolute;
+  width: var(--dot-size, 8px);
+  height: var(--dot-size, 8px);
+  background-color: var(--dot-color, #fffa);
+  transform: translate(-50%, -50%);
+  transition: all var(--animation-speed, 0.35s) ease;
+}
+.btn-wrapper .dot.top.left { top: 0; left: 0; }
+.btn-wrapper .dot.top.right { top: 0; left: 100%; }
+.btn-wrapper .dot.bottom.left { top: 100%; left: 0; }
+.btn-wrapper .dot.bottom.right { top: 100%; left: 100%; }
+
+/* 3D Perspective Wall Animations */
+.wall-column-up {
+  animation: scrollUp 40s linear infinite;
+}
+.wall-column-down {
+  animation: scrollDown 40s linear infinite;
+}
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+}
+
+.wall-card {
+  background: rgba(23, 23, 23, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s, background-color 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem !important;
+}
+.wall-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(30, 30, 30, 0.8);
+  transform: translateZ(20px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.05);
+}
+
+.wall-container {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+}
+.wall-grid {
+  transform: rotateY(-18deg) rotateX(10deg) rotateZ(-2deg) scale(1.1);
+  transform-style: preserve-3d;
+}
+.wall-column {
+  will-change: transform;
+}

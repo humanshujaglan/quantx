@@ -1,0 +1,5 @@
+ksn-launchpad-contract-address=0x9Dc2882914433c63D2205BfdBBDA32F5B693b5a3
+i6-launchpad-contract-address=0x8F0d64d3484CAFb09f6fD8BBBaeb24049E11ad16
+i6-token-address=0xd2e052c7faE5DDeD7A7B2CdDd27B5d75D18A1593
+ksn-token=0x32410FFfDb08ee162a83002e871E5Ad214B751fB
+qtxtimelock=0xbcB5850c6a369a91A30d764f35a116034668fb56
