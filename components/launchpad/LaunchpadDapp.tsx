@@ -530,24 +530,6 @@ export default function LaunchpadDapp() {
                     </button>
                   )}
                 </div>
-
-                {/* Allocation breakdown */}
-                <div className="pt-2 mt-2 border-t border-white/[0.05] grid grid-cols-2 gap-2 text-[10px] text-neutral-400 font-light">
-                  <div className="flex items-center justify-between bg-[#14171e]/60 px-2 py-1 rounded-lg">
-                    <span className="flex items-center gap-1">
-                      <img src="/i6-logo.png" alt="i6" className="w-3 h-3 object-contain" />
-                      <span>i6:</span>
-                    </span>
-                    <span className="text-neutral-200 font-mono">{effectiveConnected ? formattedI6Allocation : "0.00"}</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-[#14171e]/60 px-2 py-1 rounded-lg">
-                    <span className="flex items-center gap-1">
-                      <img src="/kissanlogo.webp" alt="KSN" className="w-3 h-3 object-contain" />
-                      <span>KSN:</span>
-                    </span>
-                    <span className="text-neutral-200 font-mono">{effectiveConnected ? formattedKsnAllocation : "0.00"}</span>
-                  </div>
-                </div>
               </div>
             </div>
 
