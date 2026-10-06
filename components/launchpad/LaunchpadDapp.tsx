@@ -191,7 +191,7 @@ export default function LaunchpadDapp() {
       `}</style>
 
       {/* Top Navigation */}
-      <header className="w-full px-3.5 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-[#0a0c0f]/85 backdrop-blur-md sticky top-0 z-50">
+      <header className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-[#0a0c0f]/85 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center gap-2.5 sm:gap-4 min-w-0">
           <Link href="/" className="flex items-center gap-2 shrink-0">
             <img src="/qtx-logo.png" alt="QuantX Logo" className="h-7 sm:h-8 w-auto object-contain" />
@@ -204,7 +204,7 @@ export default function LaunchpadDapp() {
             >
               <ArrowLeft className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-[#14F195]" />
               <span>
-                <span className="hidden xs:inline">Launchpad </span>Hub
+                <span className="hidden sm:inline">Launchpad </span>Hub
               </span>
             </button>
           )}
@@ -248,7 +248,7 @@ export default function LaunchpadDapp() {
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 flex flex-col items-center justify-center px-3.5 sm:px-6 py-5 sm:py-10 max-w-3xl mx-auto w-full">
+      <main className="flex-1 flex flex-col items-center justify-start sm:justify-center px-4 sm:px-6 py-6 sm:py-10 max-w-3xl mx-auto w-full">
         {currentView === "hub" ? (
           /* =========================================================================
              HOME PAGE (LAUNCHPAD HUB)
@@ -256,11 +256,11 @@ export default function LaunchpadDapp() {
              - /qtx-logo.png floating back and forth (hovering up and down) above it
              - Two options below: "Infinity Six" (/i6-logo.png) & "Kissan" (/kissanlogo.webp)
              ========================================================================= */
-          <div className="w-full flex flex-col items-center">
+          <div className="w-full flex flex-col items-center my-auto">
             {/* Context Pill */}
-            <div className="mb-3 sm:mb-4 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#101216] text-[11px] sm:text-xs text-neutral-400 font-light text-center max-w-full">
+            <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-[#101216] text-[11px] sm:text-xs text-neutral-400 font-light text-center max-w-full">
               <span className="w-2 h-2 rounded-full bg-[#14F195] animate-pulse shrink-0"></span>
-              <span className="truncate xs:whitespace-normal">
+              <span className="truncate sm:whitespace-normal">
                 {effectiveConnected
                   ? "Select your launchpad to begin automated reinvestment"
                   : "Connect wallet to enter Infinity Six or Kissan launchpad"}
@@ -268,13 +268,13 @@ export default function LaunchpadDapp() {
             </div>
 
             {/* Launchpad Platform Showcase: QTX Logo floating above platform.png */}
-            <div className="relative w-full max-w-xl flex flex-col items-center justify-center my-1 sm:my-3 px-2">
+            <div className="relative w-full max-w-xl flex flex-col items-center justify-center my-2 sm:my-4 px-2">
               {/* Floating QTX Logo hovering up and down above platform */}
-              <div className="relative z-20 -mb-6 xs:-mb-7 sm:-mb-8 md:-mb-10 animate-qtx-float transition-transform">
+              <div className="relative z-20 -mb-6 sm:-mb-8 md:-mb-10 animate-qtx-float transition-transform">
                 <img
                   src="/qtx-logo.png"
                   alt="QuantX AI"
-                  className="w-48 xs:w-56 sm:w-64 md:w-72 h-auto object-contain pointer-events-none select-none drop-shadow-[0_15px_30px_rgba(20,241,149,0.5)]"
+                  className="w-48 sm:w-64 md:w-72 h-auto object-contain pointer-events-none select-none drop-shadow-[0_15px_30px_rgba(20,241,149,0.5)]"
                 />
               </div>
 
@@ -283,21 +283,21 @@ export default function LaunchpadDapp() {
                 <img
                   src="/platform.png"
                   alt="QuantX Launchpad Platform"
-                  className="w-48 xs:w-56 sm:w-64 md:w-72 h-auto object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)]"
+                  className="w-48 sm:w-64 md:w-72 h-auto object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.85)]"
                 />
               </div>
             </div>
 
             {/* Two Options Below: Infinity Six & Kissan */}
-            <div className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-3 sm:mt-5">
+            <div className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mt-4 sm:mt-6">
               {/* Option 1: Infinity Six */}
               <button
                 onClick={() => openLaunchpad("i6")}
-                className="group relative p-4.5 xs:p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0f13] hover:bg-[#12151b] transition-all duration-300 text-left flex flex-col justify-between shadow-2xl active:scale-[0.99] touch-manipulation"
+                className="group relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0f13] hover:bg-[#12151b] transition-all duration-300 text-left flex flex-col justify-between shadow-2xl active:scale-[0.99] touch-manipulation"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#14171e] flex items-center justify-center p-2 shadow-inner">
+                  <div className="flex items-center justify-between mb-3.5 sm:mb-4">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#14171e] flex items-center justify-center p-2 shadow-inner">
                       <img
                         src="/i6-logo.png"
                         alt="Infinity Six Logo"
@@ -315,10 +315,10 @@ export default function LaunchpadDapp() {
                     )}
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-normal text-white group-hover:text-[#14F195] transition-colors mb-1">
+                  <h3 className="text-base sm:text-lg font-normal text-white group-hover:text-[#14F195] transition-colors mb-1.5">
                     Infinity Six
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 font-light leading-relaxed mb-4">
+                  <p className="text-xs text-neutral-400 font-light leading-relaxed mb-4">
                     Auto-sponsors detection with 10% instant bonus qualification and verified smart contract reinvestment.
                   </p>
                 </div>
@@ -332,11 +332,11 @@ export default function LaunchpadDapp() {
               {/* Option 2: Kissan */}
               <button
                 onClick={() => openLaunchpad("ksn")}
-                className="group relative p-4.5 xs:p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0f13] hover:bg-[#12151b] transition-all duration-300 text-left flex flex-col justify-between shadow-2xl active:scale-[0.99] touch-manipulation"
+                className="group relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-[#0d0f13] hover:bg-[#12151b] transition-all duration-300 text-left flex flex-col justify-between shadow-2xl active:scale-[0.99] touch-manipulation"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#14171e] flex items-center justify-center p-2 shadow-inner">
+                  <div className="flex items-center justify-between mb-3.5 sm:mb-4">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#14171e] flex items-center justify-center p-2 shadow-inner">
                       <img
                         src="/kissanlogo.webp"
                         alt="Kissan Logo"
@@ -354,10 +354,10 @@ export default function LaunchpadDapp() {
                     )}
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-normal text-white group-hover:text-[#14F195] transition-colors mb-1">
+                  <h3 className="text-base sm:text-lg font-normal text-white group-hover:text-[#14F195] transition-colors mb-1.5">
                     Kissan
                   </h3>
-                  <p className="text-[11px] sm:text-xs text-neutral-400 font-light leading-relaxed mb-4">
+                  <p className="text-xs text-neutral-400 font-light leading-relaxed mb-4">
                     KSN ecosystem liquidity investment and institutional non-custodial vaults.
                   </p>
                 </div>
@@ -377,13 +377,13 @@ export default function LaunchpadDapp() {
              - Token balance with logo
              - Full approval and reinvestment functionality
              ========================================================================= */
-          <div className="w-full max-w-xl">
+          <div className="w-full max-w-xl my-auto">
             {/* Segmented Launchpad Selector Pills with i6 and KSN logos */}
-            <div className="mb-3.5 sm:mb-4 flex items-center justify-center w-full px-1">
+            <div className="mb-4 sm:mb-5 flex items-center justify-center w-full px-1">
               <div className="inline-flex items-center p-1 bg-[#101216] rounded-full shadow-inner gap-1 max-w-full overflow-x-auto">
                 <button
                   onClick={() => setCurrentView("hub")}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-light transition-all flex items-center gap-1.5 text-neutral-400 hover:text-white shrink-0"
+                  className="px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs font-light transition-all flex items-center gap-1.5 text-neutral-400 hover:text-white shrink-0"
                 >
                   <LayoutGrid className="w-3.5 h-3.5 text-neutral-400" />
                   <span>Home</span>
@@ -400,7 +400,7 @@ export default function LaunchpadDapp() {
                   <img src="/i6-logo.png" alt="i6" className="w-3.5 sm:w-4 h-3.5 sm:h-4 object-contain" />
                   <span>Infinity Six</span>
                   {isI6Member && (
-                    <span className="hidden xs:inline px-1.5 py-0.5 text-[9px] sm:text-[10px] rounded bg-[#14F195]/20 text-[#14F195] font-light">
+                    <span className="hidden sm:inline px-1.5 py-0.5 text-[10px] rounded bg-[#14F195]/20 text-[#14F195] font-light">
                       detected
                     </span>
                   )}
@@ -417,7 +417,7 @@ export default function LaunchpadDapp() {
                   <img src="/kissanlogo.webp" alt="KSN" className="w-3.5 sm:w-4 h-3.5 sm:h-4 object-contain" />
                   <span>Kissan</span>
                   {isKsnMember && (
-                    <span className="hidden xs:inline px-1.5 py-0.5 text-[9px] sm:text-[10px] rounded bg-[#14F195]/20 text-[#14F195] font-light">
+                    <span className="hidden sm:inline px-1.5 py-0.5 text-[10px] rounded bg-[#14F195]/20 text-[#14F195] font-light">
                       detected
                     </span>
                   )}
@@ -428,28 +428,28 @@ export default function LaunchpadDapp() {
             {/* Dynamic Context Banner Pill */}
             <div className="mb-4 sm:mb-5 w-full">
               {effectiveConnected && isI6Member && isI6 ? (
-                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 rounded-2xl sm:rounded-full bg-[#14F195]/10 text-[11px] sm:text-xs text-[#14F195] font-light gap-2">
+                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2.5 rounded-xl sm:rounded-full bg-[#14F195]/10 text-[11px] sm:text-xs text-[#14F195] font-light gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <img src="/i6-logo.png" alt="i6" className="w-4 h-4 object-contain shrink-0" />
-                    <span className="truncate xs:whitespace-normal">Infinity Six member · 10% sponsor bonus auto-applied</span>
+                    <span className="truncate sm:whitespace-normal">Infinity Six member · 10% sponsor bonus auto-applied</span>
                   </div>
                   <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </div>
               ) : effectiveConnected && isKsnMember && !isI6 ? (
-                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 rounded-2xl sm:rounded-full bg-[#14F195]/10 text-[11px] sm:text-xs text-[#14F195] font-light gap-2">
+                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2.5 rounded-xl sm:rounded-full bg-[#14F195]/10 text-[11px] sm:text-xs text-[#14F195] font-light gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <img src="/kissanlogo.webp" alt="KSN" className="w-4 h-4 object-contain shrink-0" />
-                    <span className="truncate xs:whitespace-normal">Kissan participant connected</span>
+                    <span className="truncate sm:whitespace-normal">Kissan participant connected</span>
                   </div>
                   <ArrowRight className="w-3.5 h-3.5 shrink-0" />
                 </div>
               ) : (
-                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2 rounded-2xl sm:rounded-full bg-[#101216] text-[11px] sm:text-xs text-neutral-400 font-light gap-2">
+                <div className="flex items-center justify-between px-3.5 sm:px-4 py-2.5 rounded-xl sm:rounded-full bg-[#101216] text-[11px] sm:text-xs text-neutral-400 font-light gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     <span className="px-1.5 py-0.5 rounded bg-[#1c1f26] text-neutral-300 font-light text-[10px] shrink-0">
                       active
                     </span>
-                    <span className="truncate xs:whitespace-normal">{activeLaunchpadName} Launchpad on BNB Smart Chain</span>
+                    <span className="truncate sm:whitespace-normal">{activeLaunchpadName} Launchpad on BNB Smart Chain</span>
                   </div>
                   <button
                     onClick={() => setCurrentView("hub")}
@@ -462,7 +462,7 @@ export default function LaunchpadDapp() {
             </div>
 
             {/* Central Card with Zero Borders */}
-            <div className="w-full bg-[#0d0f13] rounded-2xl sm:rounded-3xl p-4.5 xs:p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div className="w-full bg-[#0d0f13] rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 shadow-2xl relative overflow-hidden">
               {/* Header with QTX logo and Active Launchpad logo */}
               <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-2.5 sm:mb-3">
                 <img src="/qtx-logo.png" alt="QuantX" className="h-6 sm:h-7 w-auto object-contain" />
@@ -473,10 +473,9 @@ export default function LaunchpadDapp() {
                 </div>
               </div>
 
-              <h1 className="text-center text-sm xs:text-base sm:text-lg font-normal text-neutral-200 mb-1">
+              <h1 className="text-center text-base sm:text-lg font-normal text-neutral-200 mb-4 sm:mb-5">
                 Reinvest from {activeLaunchpadName}
               </h1>
-              
 
               {!effectiveConnected ? (
                 /* Unconnected State inside workspace */
@@ -500,7 +499,7 @@ export default function LaunchpadDapp() {
                 /* Connected State Form */
                 <div className="space-y-4">
                   {/* Connected User Summary */}
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-[#121418] flex items-center justify-between text-xs font-light gap-2">
+                  <div className="p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-[#121418] flex items-center justify-between text-xs font-light gap-2">
                     <div className="flex items-center gap-2 min-w-0">
                       <div className="w-2 h-2 rounded-full bg-[#14F195] shrink-0"></div>
                       <span className="text-neutral-300 text-xs font-light truncate">
@@ -540,7 +539,7 @@ export default function LaunchpadDapp() {
 
                     {/* If user has detected sponsor */}
                     {isI6 && isI6Member && effectiveSponsor ? (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#121418] text-xs text-neutral-300 flex items-center justify-between font-light">
+                      <div className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-[#121418] text-xs text-neutral-300 flex items-center justify-between font-light">
                         <span className="truncate">
                           {effectiveSponsor.slice(0, 8)}...{effectiveSponsor.slice(-6)}
                         </span>
@@ -550,7 +549,7 @@ export default function LaunchpadDapp() {
                         </span>
                       </div>
                     ) : !isI6 && isKsnMember && effectiveSponsor ? (
-                      <div className="w-full px-3.5 py-2.5 rounded-xl bg-[#121418] text-xs text-neutral-300 flex items-center justify-between font-light">
+                      <div className="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-[#121418] text-xs text-neutral-300 flex items-center justify-between font-light">
                         <span className="truncate">
                           {effectiveSponsor.slice(0, 8)}...{effectiveSponsor.slice(-6)}
                         </span>
@@ -567,7 +566,7 @@ export default function LaunchpadDapp() {
                           placeholder="enter sponsor address (optional for 10% bonus)"
                           value={manualSponsorInput}
                           onChange={(e) => setManualSponsorInput(e.target.value)}
-                          className={`w-full px-3.5 py-2.5 rounded-xl bg-[#121418] text-xs placeholder:text-neutral-500 placeholder:font-light focus:outline-none transition-colors ${
+                          className={`w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-[#121418] text-xs placeholder:text-neutral-500 placeholder:font-light focus:outline-none transition-colors ${
                             manualSponsorInput.trim()
                               ? sponsorValidation.isValid
                                 ? "text-[#14F195]"
@@ -578,18 +577,19 @@ export default function LaunchpadDapp() {
                           }`}
                         />
                         {manualSponsorInput.trim() && (
-                          <div className="mt-1 text-[11px] flex items-center gap-1.5 font-light">
+                          <div className="mt-1.5 text-[11px] flex items-start gap-1.5 font-light leading-snug">
                             {sponsorValidation.isLoading ? (
                               <span className="text-neutral-400 flex items-center gap-1">
-                                <RefreshCw className="w-3 h-3 animate-spin" /> verifying sponsor in QTX ecosystem...
+                                <RefreshCw className="w-3 h-3 animate-spin shrink-0" /> verifying sponsor in QTX ecosystem...
                               </span>
                             ) : sponsorValidation.isValid ? (
                               <span className="text-[#14F195] flex items-center gap-1">
-                                <Check className="w-3.5 h-3.5" /> verified QTX sponsor ({sponsorValidation.foundIn}) — 10% bonus credited
+                                <Check className="w-3.5 h-3.5 shrink-0" /> verified QTX sponsor ({sponsorValidation.foundIn}) — 10% bonus credited
                               </span>
                             ) : (
-                              <span className="text-red-400 flex items-center gap-1">
-                                <AlertCircle className="w-3.5 h-3.5" /> {sponsorValidation.error}
+                              <span className="text-red-400 flex items-start gap-1">
+                                <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                                <span className="break-words">{sponsorValidation.error}</span>
                               </span>
                             )}
                           </div>
@@ -617,9 +617,9 @@ export default function LaunchpadDapp() {
                         placeholder="0.0"
                         value={amountInput}
                         onChange={(e) => setAmountInput(e.target.value)}
-                        className="w-full pl-3.5 pr-28 py-2.5 sm:py-3 rounded-xl bg-[#121418] text-white text-xs sm:text-sm focus:outline-none transition-colors font-light"
+                        className="w-full pl-3.5 pr-24 sm:pr-28 py-2.5 sm:py-3 rounded-xl bg-[#121418] text-white text-xs sm:text-sm focus:outline-none transition-colors font-light"
                       />
-                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                      <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 sm:gap-1.5">
                         <button
                           type="button"
                           onClick={handleMaxClick}
@@ -642,7 +642,7 @@ export default function LaunchpadDapp() {
                   </div>
 
                   {/* Slippage Settings */}
-                  <div className="p-3 rounded-xl bg-[#121418] space-y-2">
+                  <div className="p-3 sm:p-3.5 rounded-xl bg-[#121418] space-y-2">
                     <div className="flex items-center justify-between text-xs text-neutral-400 font-light">
                       <span className="flex items-center gap-1">
                         <ShieldCheck className="w-3.5 h-3.5 text-[#14F195]" /> anti-MEV slippage tolerance
@@ -655,7 +655,7 @@ export default function LaunchpadDapp() {
                           key={val}
                           onClick={() => setSlippage(val)}
                           type="button"
-                          className={`flex-1 py-1 text-xs rounded-lg font-light transition-colors ${
+                          className={`flex-1 py-1.5 text-xs rounded-lg font-light transition-colors ${
                             slippage === val
                               ? "bg-[#1c1f26] text-[#14F195]"
                               : "bg-[#0d0f13] text-neutral-400 hover:text-white"
@@ -673,7 +673,7 @@ export default function LaunchpadDapp() {
                       <AlertCircle className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
                       <div className="flex-1">
                         <p className="font-normal">transaction error</p>
-                        <p className="text-neutral-400 text-[11px] mt-0.5">{errorMessage}</p>
+                        <p className="text-neutral-400 text-[11px] mt-0.5 break-words">{errorMessage}</p>
                       </div>
                     </div>
                   )}
@@ -703,7 +703,7 @@ export default function LaunchpadDapp() {
                       <button
                         disabled={isWritePending || isTxWaiting || hasInsufficientBalance}
                         onClick={handleApprove}
-                        className="w-full py-3.5 px-4 rounded-xl bg-[#14F195] hover:bg-[#10c87b] disabled:bg-[#121418] disabled:text-neutral-600 disabled:cursor-not-allowed text-[#07080a] font-normal text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99] touch-manipulation"
+                        className="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-[#14F195] hover:bg-[#10c87b] disabled:bg-[#121418] disabled:text-neutral-600 disabled:cursor-not-allowed text-[#07080a] font-normal text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99] touch-manipulation"
                       >
                         {actionStep === "approving" && (isWritePending || isTxWaiting) ? (
                           <>
@@ -727,7 +727,7 @@ export default function LaunchpadDapp() {
                           (manualSponsorInput.trim() !== "" && !sponsorValidation.isValid)
                         }
                         onClick={handleReinvest}
-                        className="w-full py-3.5 px-4 rounded-xl bg-[#14F195] hover:bg-[#10c87b] disabled:bg-[#121418] disabled:text-neutral-600 disabled:cursor-not-allowed text-[#07080a] font-normal text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99] touch-manipulation"
+                        className="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-[#14F195] hover:bg-[#10c87b] disabled:bg-[#121418] disabled:text-neutral-600 disabled:cursor-not-allowed text-[#07080a] font-normal text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md active:scale-[0.99] touch-manipulation"
                       >
                         {actionStep === "reinvesting" && (isWritePending || isTxWaiting) ? (
                           <>

@@ -8,6 +8,12 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "480px",
+      },
+      spacing: {
+        "4.5": "1.125rem",
+      },
       colors: {
         background: "#020408",
         surface: "#0B0F17",
