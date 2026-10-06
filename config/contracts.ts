@@ -1,6 +1,7 @@
 import { i6LaunchpadAbi } from "@/abis/i6-launchpad-abi";
 import { ksnLaunchpadAbi } from "@/abis/ksnlaunchpad-abi";
 import { i6SystemContractAbi } from "@/abis/i6systemcontractabi";
+import { qtxTimelockAbi } from "@/abis/qtx-timelock-abi";
 import { erc20Abi } from "viem";
 
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000" as const;
@@ -41,5 +42,9 @@ export const CONTRACT_CONFIG = {
   },
   qtxWbnbPair: {
     address: (process.env.NEXT_PUBLIC_QTX_WBNB_PAIR || "0xaAC8A6396Ee80AFDB973FD29899a2FaAE831A29b") as `0x${string}`,
+  },
+  qtxTimelock: {
+    address: (process.env.NEXT_PUBLIC_QTX_TIMELOCK_ADDRESS || "0xbcB5850c6a369a91A30d764f35a116034668fb56") as `0x${string}`,
+    abi: qtxTimelockAbi,
   },
 } as const;

@@ -20,6 +20,9 @@ export interface LaunchpadDataState {
   ksnAllowance: bigint;
   i6Allocation: bigint;
   ksnAllocation: bigint;
+  userTotalAllocation: bigint;
+  timelockReleaseTime: bigint;
+  timelockTotalAllocated: bigint;
   refetch: () => void;
 }
 
@@ -114,6 +117,33 @@ export function useLaunchpadData(): LaunchpadDataState {
     },
   });
 
+  // Query global QTX Timelock on BSC Mainnet
+  const { data: timelockData, refetch: refetchTimelock } = useReadContracts({
+    contracts: [
+      {
+        address: CONTRACT_CONFIG.qtxTimelock.address,
+        abi: CONTRACT_CONFIG.qtxTimelock.abi,
+        functionName: "releaseTime",
+      },
+      {
+        address: CONTRACT_CONFIG.qtxTimelock.address,
+        abi: CONTRACT_CONFIG.qtxTimelock.abi,
+        functionName: "totalAllocatedToUsers",
+      },
+    ] as const,
+    query: {
+      refetchInterval: 15000,
+    },
+  });
+
+  const timelockReleaseTime = (timelockData?.[0]?.result as bigint) || 1806426968n;
+  const timelockTotalAllocated = (timelockData?.[1]?.result as bigint) || 0n;
+
+  const handleRefetch = () => {
+    refetch();
+    refetchTimelock();
+  };
+
   if (!isConnected || !address || !data) {
     return {
       address,
@@ -132,7 +162,10 @@ export function useLaunchpadData(): LaunchpadDataState {
       ksnAllowance: 0n,
       i6Allocation: 0n,
       ksnAllocation: 0n,
-      refetch: () => {},
+      userTotalAllocation: 0n,
+      timelockReleaseTime,
+      timelockTotalAllocated,
+      refetch: handleRefetch,
     };
   }
 
@@ -162,6 +195,8 @@ export function useLaunchpadData(): LaunchpadDataState {
   // Parse KSN user allocation
   const ksnAllocRaw = data[4]?.result as any;
   const ksnAllocation = ksnAllocRaw ? (ksnAllocRaw[0] as bigint) : 0n;
+
+  const userTotalAllocation = i6Allocation + ksnAllocation;
 
   const ksnSponsorRaw = (data[5]?.result as `0x${string}`) || ZERO_ADDRESS;
   const resolvedKsnSponsor = ksnSponsorRaw !== ZERO_ADDRESS ? ksnSponsorRaw : null;
@@ -201,6 +236,9 @@ export function useLaunchpadData(): LaunchpadDataState {
     ksnAllowance,
     i6Allocation,
     ksnAllocation,
-    refetch,
+    userTotalAllocation,
+    timelockReleaseTime,
+    timelockTotalAllocated,
+    refetch: handleRefetch,
   };
 }
