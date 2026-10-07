@@ -152,6 +152,12 @@ export default function LaunchpadDapp() {
     setAmountInput("");
   });
 
+  useEffect(() => {
+    if (isTxSuccess) {
+      refetch();
+    }
+  }, [isTxSuccess, refetch]);
+
   const isI6 = selectedLaunchpad === "i6";
   const activeLaunchpadContract = isI6
     ? CONTRACT_CONFIG.i6Launchpad.address
@@ -219,9 +225,8 @@ export default function LaunchpadDapp() {
   };
 
   const handleApprove = async () => {
-    if (!amountInput || parsedAmountBigInt === 0n) return;
     try {
-      await approveToken(selectedLaunchpad, amountInput);
+      await approveToken(selectedLaunchpad);
     } catch {
       // Handled in hook
     }

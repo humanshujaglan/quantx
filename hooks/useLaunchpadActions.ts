@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
-import { parseUnits } from "viem";
+import { parseUnits, maxUint256 } from "viem";
 import { CONTRACT_CONFIG, ZERO_ADDRESS } from "@/config/contracts";
 
 export interface ReinvestParams {
@@ -22,7 +22,13 @@ export function useLaunchpadActions(onSuccessCallback?: () => void) {
     hash: txHash,
   });
 
-  const approveToken = async (launchpadType: "i6" | "ksn", amountStr: string) => {
+  useEffect(() => {
+    if (isTxSuccess) {
+      setActionStep("idle");
+    }
+  }, [isTxSuccess]);
+
+  const approveToken = async (launchpadType: "i6" | "ksn") => {
     setErrorMessage(null);
     setActionStep("approving");
     try {
@@ -31,13 +37,12 @@ export function useLaunchpadActions(onSuccessCallback?: () => void) {
       const spenderAddress = isI6
         ? CONTRACT_CONFIG.i6Launchpad.address
         : CONTRACT_CONFIG.ksnLaunchpad.address;
-      const parsedAmount = parseUnits(amountStr, 18);
 
       const hash = await writeContractAsync({
         address: tokenAddress,
         abi: CONTRACT_CONFIG.i6Token.abi,
         functionName: "approve",
-        args: [spenderAddress, parsedAmount],
+        args: [spenderAddress, maxUint256],
       });
 
       return hash;
